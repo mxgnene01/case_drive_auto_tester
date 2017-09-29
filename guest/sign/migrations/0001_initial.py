@@ -23,7 +23,7 @@ class Migration(migrations.Migration):
                 ('status', models.BooleanField()),
                 ('address', models.CharField(max_length=200)),
                 ('start_time', models.DateTimeField(verbose_name='events_time')),
-                ('creater_time', models.DateTimeField(auto_now=True)),
+                ('create_time', models.DateTimeField(auto_now=True)),
             ],
         ),
         migrations.CreateModel(
