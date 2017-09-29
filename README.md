@@ -39,7 +39,32 @@ python manage.py createsuperuser
 ## 写过model 之后，进行数据库的创建
 
 ```
-python3 manage.py makemigrations sign
+python manage.py makemigrations sign
 
-python3 manage.py migrate
+python manage.py migrate
+```
+
+## 4.3 基本数据访问
+
+```
+python manage.py shell
+
+>>> from sign.models import Event, Guest
+>>> Event.objects.all()
+
+-- select
+>>> Event.objects.get(name='aaa').address
+
+-- insert
+>>> Event.objects.create()
+
+-- like
+>>> Event.objects.filter(name__contains='发布会')
+
+-- delete
+>>> Guest.objects.get(phone='13611001101').delete()
+
+-- update
+>>> g3=Guest.objects.get(phone='13611001101') >>> g3.realname='andy2'
+>>> g3.save()
 ```
