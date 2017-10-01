@@ -68,3 +68,5 @@ python manage.py shell
 >>> g3=Guest.objects.get(phone='13611001101') >>> g3.realname='andy2'
 >>> g3.save()
 ```
+
+##
