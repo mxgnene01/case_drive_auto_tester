@@ -123,7 +123,7 @@ def sign_index_action(request, event_id):
 
     result = Guest.objects.get(phone= phone, event_id=event_id)
     if result.sign:
-        return render(request, 'sign_index.html', {'event': event, 'hint': 'user has sign in .'})
+        return render(request, 'sign_index.html', {'event': event, 'hint': 'user has sign in.'})
     else:
         Guest.objects.filter(phone=phone, event_id=event_id).update(sign = '1')
         return render(request, 'sign_index.html', {'event': event, 'hint': 'sign in success!', 'guest':result})

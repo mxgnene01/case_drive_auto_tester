@@ -69,4 +69,39 @@ python manage.py shell
 >>> g3.save()
 ```
 
-##
+## 运行单元测试
+
+```
+-- 执行的是 sign/tests.py
+python manage.py test
+```
+
+## 运行 sign 应用下的所有测试用例
+
+```
+python manage.py test sign
+```
+
+## 运行sign应用下的tests.py 测试文件
+
+```
+python manage.py test sign.tests
+```
+
+## 运行 sign 应用 tests.py 测试文件下的 ModelTest 测试类
+
+```
+python manage.py test sign.tests.ModelTest
+```
+
+## 执行 ModelTest 测试类下面的 test_event_models 测试方法(用例)
+
+```
+python manage.py test sign.tests.ModelTest.test_event_models
+```
+
+## 除此之外，我们还可以使用 -p (或 --pattern)参数模糊匹配测试文件
+
+```
+python manage.py test -p test*.py
+```
