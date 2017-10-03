@@ -16,8 +16,12 @@ from django.core.exceptions import ValidationError, ObjectDoesNotExist
 from django.db.utils import IntegrityError
 import time
 
+# 解决post接口的csrf 403 错误
+from django.views.decorators.csrf import csrf_exempt
+
 
 # 添加发布会接口
+@csrf_exempt
 def add_event(request):
     eid = request.POST.get('eid','')                 # 发布会id
     name = request.POST.get('name','')               # 发布会标题
@@ -50,6 +54,7 @@ def add_event(request):
 
 
 # 添加嘉宾接口
+@csrf_exempt
 def add_guest(request):
     eid =  request.POST.get('eid','')                # 关联发布会id
     realname = request.POST.get('realname','')       # 姓名
@@ -172,6 +177,7 @@ def get_guest_list(request):
 
 
 # 用户签到接口
+@csrf_exempt
 def user_sign(request):
     eid =  request.POST.get('eid','')       # 发布会id
     phone =  request.POST.get('phone','')   # 嘉宾手机号
